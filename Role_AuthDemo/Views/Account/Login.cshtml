@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg" style="width: 400px; border-top: 5px solid maroon;">
+
+        <div class="card-header text-center" style="background-color: maroon; color: white;">
+            <h3>Login as @ViewBag.Role</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Login" method="post">
+                <input type="hidden" name="role" value="@ViewBag.Role" />
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input name="email" class="form-control" placeholder="Enter your email" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input name="password" type="password" class="form-control" placeholder="Enter your password" />
+                </div>
+
+                <button type="submit" class="btn w-100" style="background-color: maroon; color: white;">
+                    Login
+                </button>
+            </form>
+
+            @if (ViewBag.Error != null)
+            {
+                <p class="text-danger mt-3">@ViewBag.Error</p>
+            }
+
+            @if (TempData["Message"] != null)
+            {
+                <p class="text-success mt-3">@TempData["Message"]</p>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+﻿<div class="container text-center mt-5">
+    <h2>Leave Management System</h2>
+
+    <a asp-controller="Account" asp-action="Login" asp-route-role="Employee"
+       class="btn btn-danger btn-lg mt-5" style="width: 150px; height: 150px; font-size: 20px;">
+        <img src="~/Images/empployeeImage.png" alt="Manager" width="70" height="70" class="me-2" />
+        Login as Employee
+    </a>
+    <a asp-controller="Account" asp-action="Login" asp-route-role="Manager" class="btn btn-secondary btn-lg mt-5"
+       class="btn btn-danger btn-lg mt-5" style="width: 150px; height: 150px; font-size: 20px;">
+
+        <img src="~/Images/ManagerImage.png" alt="Manager" width="70" height="70" class="me-2" />
+        Login as Manager
+    </a>
+</div>

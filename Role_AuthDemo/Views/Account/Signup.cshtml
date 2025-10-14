@@ -1,0 +1,53 @@
+﻿@model Role_AuthDemo.Models.User
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg" style="width: 500px; border-top: 5px solid maroon;">
+
+        <div class="card-header text-center" style="background-color: maroon; color: white;">
+            <h3>Sign Up</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="SignUp" method="post">
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PasswordHash" class="form-label">Password</label>
+                    <input asp-for="PasswordHash" type="password" class="form-control" placeholder="Enter your password" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input name="confirmPassword" type="password" class="form-control" placeholder="Re-enter your password" />
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Role</label>
+                    <select asp-for="Role" class="form-select">
+                        <option value="Employee">Employee</option>
+                        <option value="Manager">Manager</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn w-100" style="background-color: maroon; color: white;">
+                    Sign Up
+                </button>
+                <a asp-action="Login" class="btn btn-outline-secondary mt-2 w-100">Login</a>
+            </form>
+
+            @if (ViewBag.Error != null)
+            {
+                <p class="text-danger mt-3">@ViewBag.Error</p>
+            }
+
+            @if (TempData["Message"] != null)
+            {
+                <p class="text-success mt-3">@TempData["Message"]</p>
+            }
+        </div>
+    </div>
+</div>
