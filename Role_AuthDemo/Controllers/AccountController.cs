@@ -43,6 +43,8 @@ namespace Role_AuthDemo.Controllers
             }
         }
         [HttpGet]
+
+        //This method is getting the role as the parameter based on what button the user selected (Manager/Employee)
         public IActionResult Login(string role)
         {
             ViewBag.Role = role;
