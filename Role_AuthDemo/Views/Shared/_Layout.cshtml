@@ -26,6 +26,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <!--Show navigation Menu Items specific to the role that is logged in-->
                         @if (Context.Session.GetString("UserRole") == "Employee")
                         {
                             <li class="nav-item">
