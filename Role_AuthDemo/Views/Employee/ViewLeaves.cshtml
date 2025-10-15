@@ -1,0 +1,41 @@
+﻿@model List<Role_AuthDemo.Models.LeaveRequest>
+
+<div class="container mt-4">
+    <h3>My Leave Requests</h3>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Reason</th>
+                <th>Total Days</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var leave in Model)
+            {
+                <tr>
+                    <td>@leave.StartDate.ToShortDateString()</td>
+                    <td>@leave.EndDate.ToShortDateString()</td>
+                    <td>@leave.Reason</td>
+                    <td>@leave.TotalDays</td>
+                    <td>
+                        @if (leave.Status == "Approved")
+                        {
+                            <span class="badge bg-success">@leave.Status</span>
+                        }
+                        else if (leave.Status == "Pending")
+                        {
+                            <span class="badge bg-warning text-dark">@leave.Status</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">@leave.Status</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
